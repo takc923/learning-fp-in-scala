@@ -12,4 +12,13 @@ object Second {
 
     loop(n, 0, 1)
   }
+
+  def isSorted[A](as: Array[A], gt: (A, A) => Boolean): Boolean = {
+    def loop(index: Int): Boolean =
+      if (index >= as.length - 1) true
+      else if (gt(as(index), as(index + 1))) loop(index + 1)
+      else false
+
+    loop(0)
+  }
 }
